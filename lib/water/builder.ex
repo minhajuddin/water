@@ -17,7 +17,8 @@ defmodule Water.Builder do
   defmacro __using__(_opts) do
     quote do
       def new(params) do
-        struct(__MODULE__, params)
+        # we want to throw an error if keys are invalid
+        struct!(__MODULE__, params)
       end
     end
   end
